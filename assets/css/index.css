@@ -1,0 +1,131 @@
+/**
+ * @license https://creativecommons.org/licenses/by-sa/3.0/de/ CC BY-SA
+ * @author Wolf Wortmann <ww@elementcode.de>
+ */
+
+html {
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333333;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 40px;
+    font-weight: 100;
+}
+
+p {
+}
+
+.Helper-Debug {
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+#HeaderArea .ContentRow,
+#ContentArea .ContentRow,
+#FooterArea .ContentRow {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    position: relative;
+}
+
+#HeaderArea .ContentRow:first-child,
+#ContentArea .ContentRow:first-child,
+#FooterArea .ContentRow:first-child {
+    margin-top: 0;
+}
+
+#HeaderArea .ContentRow > *,
+#ContentArea .ContentRow > *,
+#FooterArea .ContentRow > * {
+    float: left;
+    width: 100%;
+    margin-left: 3%;
+}
+
+#HeaderArea .ContentRow > *:first-child,
+#ContentArea .ContentRow > *:first-child,
+#FooterArea .ContentRow > *:first-child {
+    margin-left: 0;
+}
+
+#HeaderArea .ContentRow:after,
+#ContentArea .ContentRow:after,
+#FooterArea .ContentRow:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#HeaderArea {
+    padding: 50px 0;
+    color: #FFFFFF;
+    background: #D2AE8F;
+    background: -moz-radial-gradient(center, ellipse cover, #D2AE8F 0%, #A38169 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #D2AE8F 0%, #A38169 100%);
+    background: radial-gradient(ellipse at center, #D2AE8F 0%, #A38169 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d2ae8f', endColorstr='#a38169', GradientType=1);
+}
+
+#HeaderArea .ContentRow > * {
+    width: auto;
+    margin-left: 0;
+}
+
+#HeaderArea #Logo {
+    display: block;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+#HeaderArea #MainNav {
+    float: right;
+}
+
+#HeaderArea #MainNav ul {
+    padding: 0;
+    margin: 0;
+}
+
+#HeaderArea #MainNav li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 10px;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 12px;
+}
+
+#HeaderArea #MainNav li:not(:first-child) {
+    margin-left: 10px;
+}
+
+#HeaderArea #MainNav a {
+    display: block;
+    text-decoration: none;
+}
+
+#ContentArea {
+    padding: 100px 0;
+}
+
+#FooterArea {
+}

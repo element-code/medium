@@ -1,0 +1,41 @@
+SetEnv APP_ENVIRONMENT production
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	#RewriteBase /
+
+	#Force www
+	#RewriteCond %{HTTP_HOST} !^$
+	#RewriteCond %{HTTP_HOST} !^www\. [NC]
+	#RewriteCond %{HTTPS}s ^on(s)|
+	#RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+	#Force https
+	#RewriteCond %{HTTPS} !=on
+	#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	RewriteCond %{QUERY_STRING} (?!^\d+$)^.+$
+	RewriteRule ^media/(.+)\.(jpe?g|png|gif)$ index.php [L]
+
+	RewriteRule ^themes/(.*)/assets/(css|js)/(.*)\.[0-9]+\.((min\.)?(css|js))$ themes/$1/assets/$2/$3.$4 [L]
+
+	#Checks to see if the user is attempting to access a valid file,
+	#such as an image or css document, if this isn't true it sends the
+	#request to index.php
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+	# If we don't have mod_rewrite installed, all 404's
+	# can be sent to index.php, and everything works as normal.
+	ErrorDocument 404 index.php
+</IfModule>
+
+# deny all filex, except the assets folder and the base dir
+<FilesMatch ^(?!assets|).*$>
+	Deny from all
+	Order Deny,Allow
+</FilesMatch>
