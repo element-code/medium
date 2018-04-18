@@ -25,6 +25,7 @@ function (string $as_name, array $aa_data){
     $ls_name = strtlower($as_name);
 ```
 The first prefix char indicates the source or the scope of the var
+
 | Char | Meaning   | Description                             |
 |------|-----------|-----------------------------------------|
 | a    | attribute | Var source is a method attribute        |
@@ -32,6 +33,7 @@ The first prefix char indicates the source or the scope of the var
 | g    | global    | Var scope is global                     |
 
 The second prefix char indicates the default [type](http://us1.php.net/manual/de/language.types.php) of the variable content (if a method returns `int|bool` (and `bool` only in case of failure)) the type char is `integer`, not `unknown`.
+
 | Char | Meaning  | Description                                                                                      |
 |------|----------|--------------------------------------------------------------------------------------------------|
 | x    | unknown  | This is only used in a few cases e.g. when a method accepts a array of id's or just a single one |
